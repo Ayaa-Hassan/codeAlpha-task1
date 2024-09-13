@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="./src/output.css">
+  </head>
+  <body>
+   
+      <div class=" max-w-[1240px] mx-auto py-16  ">
+
+        <div class=" md:w-[75%] mx-auto mt-28  text-center text-white">
+
+          <h1 class=" text-amber-200 font-black text-4xl py-16 my-3"> Age Calculator</h1>
+
+          <div class="box mx-0 md:mx-10  p-9 rounded-xl bg-white/30 flex items-center relative ">
+            <input class=" flex-1 me-5 py-4 border-0 outline-0 text-lg rounded-md relative px-3 md:px-5" type="date"
+              id="date" >
+            <button onclick="ageCalculator()" class=" bg-[#ffff76] py-4 px-3 md:px-8 rounded-md font-medium text-[#333] ">Calculate</button>
+          </div>
+          <p id="res"  class=""></p>
+        </div>
+      </div>
+    <script>
+let userInput=document.getElementById("date");
+
+userInput.max =new Date().toISOString().split("T")[0];
+  let resInput = document.getElementById("res");
+
+function ageCalculator() {
+  let date = userInput.value;
+  let today = new Date();
+  let birthDate = new Date(date);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  resInput.textContent = ` You are ${age} years old,  ${m} months old and ${today.getDate() - birthDate.getDate()} days old`;
+  }
+
+
+    </script>
+  </body>
+</html>

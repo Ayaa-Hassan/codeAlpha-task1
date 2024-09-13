@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+@layer base{
+ body{
+  @apply bg-purple-400 text-white;
+ }
+  .box input::-webkit-calendar-picker-indicator{
+    top: 25%;
+    right: 0%;
+    left: 80%;
+    bottom: 0%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-position:calc(100%-10px) ;
+    background-size: 30px ;
+    cursor: pointer;
+
+
+  }
+  
+
+
+}
